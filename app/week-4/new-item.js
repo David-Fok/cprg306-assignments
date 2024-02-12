@@ -17,45 +17,54 @@ export default function NewItem() {
   }
 
   return (
-    <div>
-      <form>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          className="text-black"
-        />
+    <div className="bg-slate-200">
+      <form onSubmit={handleSubmit}>
+        <p className="p-4 m-4">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            className="text-black"
+            required
+          />
+        </p>
 
-        <label htmlFor="quantity">Quantity</label>
-        <input
-          type="number"
-          id="quantity"
-          value={quantity}
-          onChange={(event) => setQuantity(event.target.value)}
-        />
-        <label htmlFor="category">Category</label>
-        <select
-          id="category"
-          value={category}
-          onChange={(event) => setCategory(event.target.value)}
-        >
-          <option value="produce">Produce</option>
-          <option value="dairy">Dairy</option>
-          <option value="bakery">Bakery</option>
-          <option value="meat">Meat</option>
-          <option value="frozen">Frozen Foods</option>
-          <option value="canned">Canned Goods</option>
-          <option value="dry">Dry Goods</option>
-          <option value="beverages">Beverages</option>
-          <option value="snacks">Snacks</option>
-          <option value="household">Household</option>
-          <option value="other">Other</option>
-        </select>
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
+        <p className="p-4 m-4">
+          <label htmlFor="quantity">Quantity</label>
+          <input
+            type="number"
+            id="quantity"
+            value={quantity}
+            onChange={(event) => setQuantity(event.target.value)}
+          />
+        </p>
+
+        <p className="p-4 m-4">
+          <label htmlFor="category">Category</label>
+          <select
+            id="category"
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+          >
+            <option value="produce">Produce</option>
+            <option value="dairy">Dairy</option>
+            <option value="bakery">Bakery</option>
+            <option value="meat">Meat</option>
+            <option value="frozen">Frozen Foods</option>
+            <option value="canned">Canned Goods</option>
+            <option value="dry">Dry Goods</option>
+            <option value="beverages">Beverages</option>
+            <option value="snacks">Snacks</option>
+            <option value="household">Household</option>
+            <option value="other">Other</option>
+          </select>
+        </p>
+
+        <p className="p-4 m-4">
+          <button type="submit">Submit</button>
+        </p>
       </form>
     </div>
   );
