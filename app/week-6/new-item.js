@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [category, setCategory] = useState("produce");
@@ -9,8 +9,7 @@ export default function NewItem() {
   function handleSubmit(event) {
     event.preventDefault();
     const item = { name, quantity, category };
-    console.log(item);
-    alert(JSON.stringify(item));
+    onAddItem(item);
     setName("");
     setQuantity(1);
     setCategory("produce");
@@ -20,7 +19,7 @@ export default function NewItem() {
     <div className="bg-slate-200">
       <form onSubmit={handleSubmit}>
         <p className="p-4 m-4">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Name: </label>
           <input
             type="text"
             id="name"
@@ -32,7 +31,7 @@ export default function NewItem() {
         </p>
 
         <p className="p-4 m-4">
-          <label htmlFor="quantity">Quantity</label>
+          <label htmlFor="quantity">Quantity: </label>
           <input
             type="number"
             id="quantity"
@@ -42,7 +41,7 @@ export default function NewItem() {
         </p>
 
         <p className="p-4 m-4">
-          <label htmlFor="category">Category</label>
+          <label htmlFor="category">Category: </label>
           <select
             id="category"
             value={category}
@@ -63,7 +62,12 @@ export default function NewItem() {
         </p>
 
         <p className="p-4 m-4">
-          <button type="submit">Submit</button>
+          <button
+            type="submit"
+            className="border-yellow-500 border-2 w-20    bg-slate-100 hover:bg-slate-300 active:bg-slate-500"
+          >
+            Submit
+          </button>
         </p>
       </form>
     </div>
